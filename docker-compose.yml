@@ -14,6 +14,7 @@ services:
       SUPABASE_PUBLISHABLE_KEY: ${SUPABASE_PUBLISHABLE_KEY:-}
       AUTH_REDIRECT_ORIGIN: ${AUTH_REDIRECT_ORIGIN:-}
       FRONTEND_URL: ${FRONTEND_URL:-}
+      FRONTEND_URLS: ${FRONTEND_URLS:-}
     restart: unless-stopped
 
   frontend:

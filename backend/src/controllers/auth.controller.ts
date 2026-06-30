@@ -9,7 +9,7 @@ import {
 	getSafeNextPath,
 } from "../auth/redirects"
 import { createSupabaseServerClient } from "../auth/supabase"
-import { getOptionalEnv } from "../config/env"
+import { isAllowedFrontendOrigin } from "../config/frontend-origins"
 import { db } from "../db/client"
 import { profiles } from "../db/schema"
 
@@ -44,23 +44,15 @@ function getHeaderOrigin(value?: string) {
 	}
 }
 
-function getAllowedLogoutOrigins(c: Context) {
-	const origins = new Set([getBackendOrigin(c)])
-	const frontendUrl = getOptionalEnv("FRONTEND_URL")
-
-	if (frontendUrl) {
-		origins.add(new URL(frontendUrl).origin)
-	}
-
-	return origins
-}
-
 function hasAllowedRequestOrigin(c: Context) {
 	const requestOrigin =
 		getHeaderOrigin(c.req.header("Origin")) ??
 		getHeaderOrigin(c.req.header("Referer"))
 
-	return requestOrigin ? getAllowedLogoutOrigins(c).has(requestOrigin) : false
+	return requestOrigin
+		? requestOrigin === getBackendOrigin(c) ||
+				isAllowedFrontendOrigin(requestOrigin)
+		: false
 }
 
 export async function handleOAuthCallback(c: Context) {
