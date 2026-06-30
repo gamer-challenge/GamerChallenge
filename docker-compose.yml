@@ -3,29 +3,26 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    image: gamer-backend:dev
+    image: gamer-backend:latest
     ports:
       - "3000:3000"
-    volumes:
-      - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
-    command: sh -c "bun install --ignore-scripts && bun run docker:dev"
-    env_file:
-      - ./backend/.env
     environment:
-      - NODE_ENV=development
+      NODE_ENV: production
+      DATABASE_URL: ${DATABASE_URL}
+      SUPABASE_URL: ${SUPABASE_URL}
+      SUPABASE_PUBLISHABLE_KEY: ${SUPABASE_PUBLISHABLE_KEY}
+      AUTH_REDIRECT_ORIGIN: ${AUTH_REDIRECT_ORIGIN}
+      FRONTEND_URL: ${FRONTEND_URL}
     restart: unless-stopped
+
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    image: gamer-frontend:dev
+    image: gamer-frontend:latest
     ports:
       - "5173:5173"
-    volumes:
-      - ./frontend:/usr/src/app
-      - /usr/src/app/node_modules
-    command: sh -c "bun install --ignore-scripts && bun run dev -- --host 0.0.0.0"
     environment:
-      - NODE_ENV=development
+      NODE_ENV: production
+      VITE_API_URL: ${VITE_API_URL}
     restart: unless-stopped
