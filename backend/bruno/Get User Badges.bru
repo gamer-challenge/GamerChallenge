@@ -1,0 +1,11 @@
+meta {
+  name: Get User Badges
+  type: http
+  seq: 20
+}
+
+get {
+  url: {{baseUrl}}/api/v1/users/{{userId}}/badges
+  body: none
+  auth: none
+}

@@ -1,0 +1,7 @@
+node_modules
+.git
+.vscode
+.env
+dist
+bun.lockb
+.DS_Store

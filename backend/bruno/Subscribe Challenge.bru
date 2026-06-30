@@ -1,0 +1,15 @@
+meta {
+  name: Subscribe Challenge
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/api/v1/challenges/{{challengeId}}/subscribe
+  body: none
+  auth: none
+}
+
+headers {
+  Cookie: {{authCookie}}
+}

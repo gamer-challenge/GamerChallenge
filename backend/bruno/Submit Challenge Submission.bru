@@ -1,0 +1,24 @@
+meta {
+  name: Submit Challenge Submission
+  type: http
+  seq: 14
+}
+
+post {
+  url: {{baseUrl}}/api/v1/challenges/{{challengeId}}/submissions
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Cookie: {{authCookie}}
+}
+
+body:json {
+  {
+    "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "screenshotUrl": null,
+    "description": "Clean run proof."
+  }
+}

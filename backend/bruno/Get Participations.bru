@@ -1,0 +1,15 @@
+meta {
+  name: Get Participations
+  type: http
+  seq: 16
+}
+
+get {
+  url: {{baseUrl}}/api/v1/participations?status={{participationStatus}}
+  body: none
+  auth: none
+}
+
+headers {
+  Cookie: {{authCookie}}
+}

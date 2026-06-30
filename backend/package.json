@@ -1,0 +1,32 @@
+{
+	"name": "backend",
+	"scripts": {
+		"dev": "bun run --hot src/index.ts",
+		"test": "bun test",
+		"init-db": "bun run scripts/init-db.ts",
+		"seed": "bun run seed/seed.ts",
+		"prepare": "cd .. && bun backend/node_modules/husky/bin.js backend/.husky",
+		"check:backend": "bun run tsc --noEmit",
+		"check:frontend": "cd ../frontend && bun run tsc -p tsconfig.app.json --noEmit && bun run tsc -p tsconfig.node.json --noEmit",
+		"lint:backend": "bun run biome check --staged --no-errors-on-unmatched .",
+		"lint:frontend": "cd ../frontend && bun run biome check --staged --no-errors-on-unmatched .",
+		"lint:all": "bun run lint:backend && bun run lint:frontend",
+		"check:all": "bun run lint:all && bun run check:backend && bun run check:frontend",
+		"docker:dev": "bun run init-db && bun run --hot src/index.ts",
+		"start": "bun run init-db && bun src/index.ts"
+	},
+	"dependencies": {
+		"@supabase/ssr": "^0.10.3",
+		"@supabase/supabase-js": "^2.86.0",
+		"drizzle-orm": "^0.45.2",
+		"hono": "^4.12.15",
+		"postgres": "^3.4.7"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.15",
+		"@types/bun": "latest",
+		"drizzle-kit": "^0.31.10",
+		"husky": "^9.1.7",
+		"typescript": "^6.0.3"
+	}
+}

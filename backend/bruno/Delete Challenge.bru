@@ -1,0 +1,15 @@
+meta {
+  name: Delete Challenge
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/api/v1/challenges/{{challengeId}}
+  body: none
+  auth: none
+}
+
+headers {
+  Cookie: {{authCookie}}
+}

@@ -1,0 +1,11 @@
+meta {
+  name: Get Auth Callback
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/api/v1/auth/callback?code={{oauthCode}}&next={{nextPath}}
+  body: none
+  auth: none
+}

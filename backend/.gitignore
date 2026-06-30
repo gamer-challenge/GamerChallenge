@@ -1,0 +1,11 @@
+# deps
+node_modules/
+.DS_Store
+.env
+dist/
+coverage/
+logs/
+*.log
+*.pid
+*.seed
+*.pid.lock

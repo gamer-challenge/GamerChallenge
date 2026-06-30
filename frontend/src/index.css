@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+@import "tailwindcss";
+
+@theme {
+	--color-surface: #051424;
+	--color-surface-dim: #051424;
+	--color-surface-bright: #2c3a4c;
+	--color-surface-container-lowest: #010f1f;
+	--color-surface-container-low: #0d1c2d;
+	--color-surface-container: #122131;
+	--color-surface-container-high: #1c2b3c;
+	--color-surface-container-highest: #273647;
+	--color-on-surface: #d4e4fa;
+	--color-on-surface-variant: #ccc3d8;
+	--color-inverse-surface: #d4e4fa;
+	--color-inverse-on-surface: #233143;
+	--color-outline: #958da1;
+	--color-outline-variant: #4a4455;
+	--color-surface-tint: #d2bbff;
+	--color-primary: #d2bbff;
+	--color-on-primary: #3f008e;
+	--color-primary-container: #7c3aed;
+	--color-on-primary-container: #ede0ff;
+	--color-inverse-primary: #732ee4;
+	--color-secondary: #bec6e0;
+	--color-on-secondary: #283044;
+	--color-secondary-container: #3f465c;
+	--color-on-secondary-container: #adb4ce;
+	--color-tertiary: #4edea3;
+	--color-on-tertiary: #003824;
+	--color-tertiary-container: #007650;
+	--color-on-tertiary-container: #76ffc2;
+	--color-error: #ffb4ab;
+	--color-on-error: #690005;
+	--color-error-container: #93000a;
+	--color-on-error-container: #ffdad6;
+	--color-background: #051424;
+	--color-on-background: #d4e4fa;
+	--color-surface-variant: #273647;
+	--color-warning: #facc15;
+	--color-on-warning: #422006;
+	--color-white-custom: #d4e4fa;
+	--color-black-custom: #051424;
+	--color-button-dark: #122131;
+
+	--font-title: "Montserrat", system-ui, sans-serif;
+	--font-content: "Inter", system-ui, sans-serif;
+	--font-h1: "Montserrat", system-ui, sans-serif;
+	--font-h2: "Montserrat", system-ui, sans-serif;
+	--font-h3: "Montserrat", system-ui, sans-serif;
+	--font-lead: "Inter", system-ui, sans-serif;
+	--font-body: "Inter", system-ui, sans-serif;
+	--font-caption: "Inter", system-ui, sans-serif;
+
+	--text-h1: 48px;
+	--text-h1--line-height: 1.2;
+	--text-h1--font-weight: 800;
+	--text-h1-mobile: 32px;
+	--text-h1-mobile--line-height: 1.2;
+	--text-h1-mobile--font-weight: 800;
+	--text-h2: 36px;
+	--text-h2--line-height: 1.3;
+	--text-h2--font-weight: 700;
+	--text-h3: 24px;
+	--text-h3--line-height: 1.3;
+	--text-h3--font-weight: 700;
+	--text-lead: 20px;
+	--text-lead--line-height: 1.5;
+	--text-lead--font-weight: 500;
+	--text-body: 16px;
+	--text-body--line-height: 1.6;
+	--text-body--font-weight: 400;
+	--text-caption: 12px;
+	--text-caption--line-height: 1;
+	--text-caption--font-weight: 600;
+
+	--spacing-xs: 4px;
+	--spacing-sm: 8px;
+	--spacing-md: 16px;
+	--spacing-lg: 24px;
+	--spacing-xl: 32px;
+	--spacing-gutter: 24px;
+	--spacing-margin-mobile: 16px;
+	--spacing-container-max: 1280px;
+}
+
+:root {
+	--text: #d4e4fa;
+	--text-h: #d4e4fa;
+	--bg: #051424;
+	--border: rgba(255, 255, 255, 0.1);
+	--code-bg: #122131;
+	--accent: #d2bbff;
+	--accent-bg: rgba(124, 58, 237, 0.16);
+	--accent-border: rgba(210, 187, 255, 0.5);
+	--social-bg: rgba(30, 41, 59, 0.7);
+	--shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+
+	--sans: "Inter", system-ui, sans-serif;
+	--heading: "Montserrat", system-ui, sans-serif;
+	--mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+	--primary: #d2bbff;
+	--secondary: #bec6e0;
+	--tertiary: #4edea3;
+	--white: #d4e4fa;
+	--black: #051424;
+	--title-font: "Montserrat", var(--sans);
+	--content-font: "Inter", var(--sans);
+
+	font: 16px / 1.6 var(--sans);
+	letter-spacing: 0;
+	color: var(--text);
+	background: var(--bg);
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color-scheme: dark;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	min-height: 100%;
+	background: #051424;
+	overflow-x: hidden;
+}
+
+body {
+	min-width: 320px;
+	min-height: 100svh;
+	margin: 0;
+	overflow-x: hidden;
+	font-family: var(--content-font);
+	color: var(--white);
+	background:
+		linear-gradient(115deg, rgba(124, 58, 237, 0.12), transparent 28%),
+		linear-gradient(245deg, rgba(0, 118, 80, 0.12), transparent 34%),
+		linear-gradient(rgba(210, 187, 255, 0.045) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(210, 187, 255, 0.045) 1px, transparent 1px),
+		#051424;
+	background-size:
+		auto,
+		auto,
+		48px 48px,
+		48px 48px,
+		auto;
+}
+
+button,
+input,
+textarea,
+select {
+	font: inherit;
+}
+
+button,
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+#root {
+	width: 100%;
+	min-height: 100svh;
+	display: flex;
+	flex-direction: column;
+	background: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	font-family: var(--heading);
+	color: var(--text-h);
+	letter-spacing: 0;
+}
+
+p {
+	margin: 0;
+}
+
+code,
+.counter {
+	font-family: var(--mono);
+}
+
+::selection {
+	background: rgba(124, 58, 237, 0.55);
+	color: #ede0ff;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #051424;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #273647;
+	border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #7c3aed;
+}
+
+.font-title {
+	font-family: var(--title-font);
+}
+
+.font-content {
+	font-family: var(--content-font);
+}
+
+.material-symbols-outlined {
+	font-family: "Material Symbols Outlined", sans-serif;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 1;
+	letter-spacing: 0;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	-webkit-font-feature-settings: "liga";
+	-webkit-font-smoothing: antialiased;
+	font-variation-settings:
+		"FILL" 0,
+		"wght" 400,
+		"GRAD" 0,
+		"opsz" 24;
+}
+
+.glass-panel {
+	background: rgba(30, 41, 59, 0.7);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-strong {
+	background: rgba(28, 43, 60, 0.82);
+	backdrop-filter: blur(24px);
+	-webkit-backdrop-filter: blur(24px);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.05),
+		0 24px 80px rgba(1, 15, 31, 0.45);
+}
+
+.neon-glow {
+	transition:
+		transform 180ms ease,
+		border-color 180ms ease,
+		box-shadow 180ms ease,
+		background-color 180ms ease,
+		color 180ms ease;
+}
+
+.neon-glow:hover,
+.neon-glow:focus-visible {
+	transform: translateY(-1px);
+	box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+}
+
+.gradient-text {
+	background: linear-gradient(90deg, #d2bbff, #4edea3);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+.tactical-input {
+	width: 100%;
+	border: 1px solid #4a4455;
+	border-radius: 0.5rem;
+	background: rgba(1, 15, 31, 0.74);
+	color: #d4e4fa;
+	outline: none;
+	transition:
+		border-color 180ms ease,
+		box-shadow 180ms ease,
+		background-color 180ms ease;
+}
+
+.tactical-input::placeholder {
+	color: rgba(204, 195, 216, 0.48);
+}
+
+.tactical-input:focus {
+	border-color: #d2bbff;
+	box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+}
+
+.table-row-hover {
+	transition:
+		background-color 180ms ease,
+		transform 180ms ease;
+}
+
+.table-row-hover:hover {
+	background-color: rgba(255, 255, 255, 0.05);
+	transform: translateX(4px);
+}
+
+.kinetic-grid {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background-image:
+		linear-gradient(to right, rgba(210, 187, 255, 0.1) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(210, 187, 255, 0.08) 1px, transparent 1px);
+	background-size: 52px 52px;
+	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 75%);
+	transform: perspective(600px) rotateX(58deg) translateY(-10%);
+	transform-origin: top;
+}

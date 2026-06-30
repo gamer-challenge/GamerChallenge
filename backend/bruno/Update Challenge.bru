@@ -1,0 +1,26 @@
+meta {
+  name: Update Challenge
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/api/v1/challenges/{{challengeId}}
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Cookie: {{authCookie}}
+}
+
+body:json {
+  {
+    "title": "Updated challenge title",
+    "description": "Updated challenge description.",
+    "rules": "Updated challenge rules.",
+    "rewardPoints": 75,
+    "status": "active"
+  }
+}

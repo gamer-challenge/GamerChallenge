@@ -1,0 +1,15 @@
+meta {
+  name: Unsubscribe Challenge
+  type: http
+  seq: 13
+}
+
+delete {
+  url: {{baseUrl}}/api/v1/challenges/{{challengeId}}/subscribe
+  body: none
+  auth: none
+}
+
+headers {
+  Cookie: {{authCookie}}
+}

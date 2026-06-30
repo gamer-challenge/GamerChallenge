@@ -1,0 +1,26 @@
+meta {
+  name: Create Challenge
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/v1/challenges
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Cookie: {{authCookie}}
+}
+
+body:json {
+  {
+    "title": "Any percent",
+    "description": "Finish the run as fast as possible.",
+    "rules": "No cheat, no glitch abuse.",
+    "rewardPoints": 50,
+    "gameId": {{gameId}}
+  }
+}

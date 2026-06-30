@@ -1,0 +1,20 @@
+GAMES: id_game, name, slug, cover_url, created_at
+CONCERNER, 0N GAMES, 11 CHALLENGES
+CHALLENGES: id_challenge, slug, title, description, rules, reward_points, status, created_at, updated_at
+CIBLER, 0N CHALLENGES, 11 PARTICIPATIONS
+PARTICIPATIONS: id_participation, video_url, screenshot_url, description, upvotes, downvotes, status, created_at, updated_at
+
+:
+S_ABONNER, 0N PROFILES, 0N CHALLENGES: subscribed_at
+CREER, 0N PROFILES, 11 CHALLENGES
+SOUMETTRE, 1N PROFILES, 11 PARTICIPATIONS
+VOTER, 0N PROFILES, 0N PARTICIPATIONS: value, voted_at
+
+:
+PROFILES: id_profile, username, avatar_url, bio, role, points, karma, is_banned, created_at, updated_at
+:
+OBTENIR, 0N PROFILES, 0N BADGES, 01 CHALLENGES: awarded_at
+
+:
+:
+BADGES: id_badge, name, description, icon_url, created_at

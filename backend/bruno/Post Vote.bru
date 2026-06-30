@@ -1,0 +1,23 @@
+meta {
+  name: Post Vote
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/api/v1/vote
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Cookie: {{authCookie}}
+}
+
+body:json {
+  {
+    "participationId": {{participationId}},
+    "value": 1
+  }
+}

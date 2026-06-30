@@ -1,0 +1,50 @@
+{
+	"width": 1046,
+	"height": 601,
+	"cx": [
+		["GAMES", 79],
+		["CONCERNER", 286],
+		["CHALLENGES", 515],
+		["CIBLER", 712],
+		["PARTICIPATIONS", 927],
+		["S_ABONNER", 286],
+		["CREER", 515],
+		["SOUMETTRE", 712],
+		["VOTER", 927],
+		["PROFILES", 286],
+		["OBTENIR", 712],
+		["BADGES", 712]
+	],
+	"cy": [
+		["GAMES", 102],
+		["CONCERNER", 102],
+		["CHALLENGES", 102],
+		["CIBLER", 102],
+		["PARTICIPATIONS", 102],
+		["S_ABONNER", 254],
+		["CREER", 254],
+		["SOUMETTRE", 254],
+		["VOTER", 254],
+		["PROFILES", 406],
+		["OBTENIR", 406],
+		["BADGES", 533]
+	],
+	"shift": [
+		["CONCERNER,GAMES,0", 0],
+		["CONCERNER,CHALLENGES,0", 0],
+		["CIBLER,CHALLENGES,0", 0],
+		["CIBLER,PARTICIPATIONS,0", 0],
+		["S_ABONNER,PROFILES,0", 0],
+		["S_ABONNER,CHALLENGES,0", 0],
+		["CREER,PROFILES,0", 0],
+		["CREER,CHALLENGES,0", 0],
+		["SOUMETTRE,PROFILES,0", 0],
+		["SOUMETTRE,PARTICIPATIONS,0", 0],
+		["VOTER,PROFILES,0", 0],
+		["VOTER,PARTICIPATIONS,0", 0],
+		["OBTENIR,PROFILES,0", 0],
+		["OBTENIR,BADGES,0", 0],
+		["OBTENIR,CHALLENGES,0", 0]
+	],
+	"ratio": []
+}

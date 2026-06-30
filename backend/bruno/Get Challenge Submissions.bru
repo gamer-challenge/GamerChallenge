@@ -1,0 +1,15 @@
+meta {
+  name: Get Challenge Submissions
+  type: http
+  seq: 15
+}
+
+get {
+  url: {{baseUrl}}/api/v1/challenges/{{challengeId}}/submissions
+  body: none
+  auth: none
+}
+
+headers {
+  Cookie: {{authCookie}}
+}

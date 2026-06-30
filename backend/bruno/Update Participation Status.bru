@@ -1,0 +1,22 @@
+meta {
+  name: Update Participation Status
+  type: http
+  seq: 17
+}
+
+patch {
+  url: {{baseUrl}}/api/v1/participations/{{participationId}}/status
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Cookie: {{authCookie}}
+}
+
+body:json {
+  {
+    "status": "validated"
+  }
+}
