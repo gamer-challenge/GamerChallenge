@@ -37,12 +37,8 @@ export default function CreateChallengeModal({ onClose }: Props) {
 		try {
 			setLoading(true)
 			setError(null)
-			const apiBase = import.meta.env.VITE_API_URL || ""
-			const url = apiBase
-				? `${apiBase}/api/v1/challenges`
-				: "/api/v1/challenges"
 
-			const response = await fetch(url, {
+			const response = await fetch("/api/v1/challenges", {
 				method: "POST",
 				credentials: "include",
 				headers: {

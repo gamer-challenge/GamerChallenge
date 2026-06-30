@@ -11,8 +11,6 @@ EXPOSE 5173
 CMD ["bun", "run", "dev", "--", "--host", "0.0.0.0"]
 
 FROM base AS build
-ARG VITE_API_URL
-ENV VITE_API_URL=$VITE_API_URL
 RUN bun install --ignore-scripts
 COPY . .
 RUN bun run build

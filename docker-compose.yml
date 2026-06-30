@@ -22,8 +22,6 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       target: production
-      args:
-        VITE_API_URL: ${VITE_API_URL:-}
     image: gamer-frontend:latest
     ports:
       - "${FRONTEND_PORT:-5173}:80"
