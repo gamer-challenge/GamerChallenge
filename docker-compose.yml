@@ -15,6 +15,16 @@ services:
       AUTH_REDIRECT_ORIGIN: ${AUTH_REDIRECT_ORIGIN:-}
       FRONTEND_URL: ${FRONTEND_URL:-}
       FRONTEND_URLS: ${FRONTEND_URLS:-}
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "bun -e \"const r = await fetch('http://127.0.0.1:3000/'); process.exit(r.ok ? 0 : 1)\"",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
     restart: unless-stopped
 
   frontend:
@@ -23,6 +33,9 @@ services:
       dockerfile: Dockerfile
       target: production
     image: gamer-frontend:latest
+    depends_on:
+      backend:
+        condition: service_healthy
     ports:
       - "${FRONTEND_PORT:-5173}:80"
     restart: unless-stopped
