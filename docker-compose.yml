@@ -3,26 +3,27 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+      target: production
     image: gamer-backend:latest
     ports:
-      - "3000:3000"
+      - "${BACKEND_PORT:-3000}:3000"
     environment:
       NODE_ENV: production
-      DATABASE_URL: ${DATABASE_URL}
-      SUPABASE_URL: ${SUPABASE_URL}
-      SUPABASE_PUBLISHABLE_KEY: ${SUPABASE_PUBLISHABLE_KEY}
-      AUTH_REDIRECT_ORIGIN: ${AUTH_REDIRECT_ORIGIN}
-      FRONTEND_URL: ${FRONTEND_URL}
+      DATABASE_URL: ${DATABASE_URL:-}
+      SUPABASE_URL: ${SUPABASE_URL:-}
+      SUPABASE_PUBLISHABLE_KEY: ${SUPABASE_PUBLISHABLE_KEY:-}
+      AUTH_REDIRECT_ORIGIN: ${AUTH_REDIRECT_ORIGIN:-}
+      FRONTEND_URL: ${FRONTEND_URL:-}
     restart: unless-stopped
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      target: production
+      args:
+        VITE_API_URL: ${VITE_API_URL:-}
     image: gamer-frontend:latest
     ports:
-      - "5173:5173"
-    environment:
-      NODE_ENV: production
-      VITE_API_URL: ${VITE_API_URL}
+      - "${FRONTEND_PORT:-5173}:80"
     restart: unless-stopped

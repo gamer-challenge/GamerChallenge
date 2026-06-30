@@ -1,18 +1,17 @@
-FROM oven/bun:latest
+FROM oven/bun:latest AS base
 
 WORKDIR /usr/src/app
 
-# Copy lockfile and package first for better cache
 COPY package.json bun.lock ./
 
-# Install production dependencies without Git hook setup
-RUN bun install --production --ignore-scripts
-
-# Copy rest of the source
+FROM base AS development
+RUN bun install --ignore-scripts
 COPY . .
-
-# Expose default port (adjust if your app uses a different one)
 EXPOSE 3000
+CMD ["bun", "run", "docker:dev"]
 
-# Create missing database tables, then run the app
+FROM base AS production
+RUN bun install --production --ignore-scripts
+COPY . .
+EXPOSE 3000
 CMD ["bun", "run", "start"]

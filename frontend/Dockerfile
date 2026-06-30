@@ -1,17 +1,23 @@
-FROM oven/bun:latest
+FROM oven/bun:latest AS base
 
 WORKDIR /usr/src/app
 
-# Copy dependency manifests first for better cache
 COPY package.json bun.lock* package-lock.json* pnpm-lock.yaml* yarn.lock* ./
 
-# Install dependencies with bun (install devDependencies for dev image)
-RUN bun install
-
-# Copy the rest of the source
+FROM base AS development
+RUN bun install --ignore-scripts
 COPY . .
-
 EXPOSE 5173
-
-# Start Vite dev server (bind to 0.0.0.0 for container access)
 CMD ["bun", "run", "dev", "--", "--host", "0.0.0.0"]
+
+FROM base AS build
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
+RUN bun install --ignore-scripts
+COPY . .
+RUN bun run build
+
+FROM nginx:alpine AS production
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /usr/src/app/dist /usr/share/nginx/html
+EXPOSE 80
